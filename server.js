@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 const items = require("./routes/api/items");
+const persons = require("./routes/api/persons");
 //Middleware
 app.use(express.json());
 //app.use(bodyParser.json());
@@ -19,6 +20,7 @@ mongoose
 
 //use routes
 app.use("/api/items", items);
+app.use("/api/persons", persons);
 
 const PORT = process.env.PORT || 5000;
 

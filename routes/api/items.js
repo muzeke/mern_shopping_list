@@ -13,6 +13,15 @@ router.get("/", (req, res) => {
     .then((items) => res.json(items));
 });
 
+// @route   GET api/items/:id
+// @desc    GET all items
+// @access  Public
+router.get("/:id", (req, res) => {
+  Item.findById(req.params.id)
+    .sort({ date: -1 })
+    .then((items) => res.json(items));
+});
+
 // @route   POST api/items
 // @desc    CREATE an Item
 // @access  Public
