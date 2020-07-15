@@ -8,12 +8,17 @@ import { getItems, deleteItem } from "../actions/ItemActions";
 import PropTypes from "prop-types";
 
 import ItemModal from "./ItemModal";
-
+import axios from "axios";
 const ShoppingList = (props) => {
   const { items, loading } = props.item;
-
+  const getSomething = () => {
+    axios.get("/api/items").then((res) => {
+      console.log(res.data);
+    });
+  };
   useEffect(() => {
     props.getItems();
+    getSomething();
     //disable rule
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
